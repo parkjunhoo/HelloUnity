@@ -30,7 +30,7 @@ public class CollisionCheck : MonoBehaviour
     
     private void WallCheck()
     {
-        Vector3 pos = transform.position;
+        Vector3 pos = transform.position + new Vector3(0,0.3f,0);
         Debug.DrawRay(pos ,transform.forward * 0.161f, Color.green);
         int layer = (1 << 6) | (1 << 7);
         if (Physics.Raycast(pos, transform.forward, 0.161f, layer))
@@ -42,6 +42,8 @@ public class CollisionCheck : MonoBehaviour
         PlayerController.ContactWall = false;
         return;
     }
+
+    /*
     private void _GroundCheck()
     {
         Debug.DrawRay(transform.position, -Vector3.up * 0.02f, Color.red);
@@ -53,5 +55,6 @@ public class CollisionCheck : MonoBehaviour
         PlayerController.OnGround = false;
         return;
     }
+    */
     
 }
